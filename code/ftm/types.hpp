@@ -20,6 +20,9 @@ using sec_i64 = std::chrono::duration<int64_t>;
 using ms_t = std::chrono::milliseconds;
 using ms_i64 = std::chrono::duration<int64_t, std::milli>;
 
+using us_t = std::chrono::microseconds;
+using us_i64 = std::chrono::duration<int64_t, std::micro>;
+
 using ns_t = std::chrono::nanoseconds;
 using ns_i64 = std::chrono::duration<int64_t, std::nano>;
 }

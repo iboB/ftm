@@ -14,7 +14,7 @@ namespace ftm
 class FTM_API system_clock
 {
 public:
-    using duration = ms_i64;
+    using duration = us_i64;
     using time_point = std::chrono::time_point<system_clock>;
 
     using now_func = time_point(*)();

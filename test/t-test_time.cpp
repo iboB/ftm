@@ -30,5 +30,5 @@ TEST_CASE("elapse")
     ftm::test_time::elapse(ftm::sec_i32(1));
 
     sysnow = ftm::system_clock::now();
-    CHECK(sysnow.time_since_epoch().count() == 1000);
+    CHECK(sysnow.time_since_epoch().count() == 1'000'000);
 }
