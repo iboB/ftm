@@ -7,6 +7,10 @@
 * Clock types which:
     * Use strictly defined time point types from above
     * Can have their behavior changed for testing purposes, replacing the time measurement from "real" (from the physical system) to "test" (where the time needs to be manually advanced by the user)
+* A `year_month_day` type, somewhat similar to the one from C++20, but:
+    * With a stricly defined size: 32 bits
+    * Using regular integers for year, month, and day 
+    * With helper methods like conversion to/from a human-readable integer, leap check, and weekday calculation
 
 *Although usable for the most part, ftm is still under development and things may drastically change in the near future*
 

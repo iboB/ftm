@@ -12,3 +12,4 @@ macro(add_ftm_test test)
 endmacro()
 
 add_ftm_test(test_time t-test_time.cpp)
+add_ftm_test(year_month_day t-year_month_day.cpp)
