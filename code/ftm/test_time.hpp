@@ -6,13 +6,14 @@
 // https://opensource.org/licenses/MIT
 //
 #pragma once
+#include "api.h"
 
 #include "system_clock.hpp"
 
 namespace ftm
 {
 
-class test_time
+class FTM_API test_time
 {
 public:
     template <typename ...Clocks>

@@ -5,6 +5,7 @@
 // See accompanying file LICENSE or copy at
 // https://opensource.org/licenses/MIT
 //
+#if FTM_IMPLEMENT
 #include "system_clock.hpp"
 #include "test_time.hpp"
 
@@ -55,3 +56,5 @@ void test_time::elapse(ns_i64 duration)
 }
 
 }
+
+#endif

@@ -6,11 +6,12 @@
 // https://opensource.org/licenses/MIT
 //
 #pragma once
+#include "api.h"
 #include "types.hpp"
 
 namespace ftm
 {
-class system_clock
+class FTM_API system_clock
 {
 public:
     using duration = ms_i64;
