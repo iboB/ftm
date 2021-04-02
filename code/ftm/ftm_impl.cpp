@@ -15,24 +15,22 @@ namespace ftm
 
 namespace
 {
-system_clock::time_point system_clock_now()
-{
-    return system_clock::time_point{std::chrono::duration_cast<system_clock::duration>(std::chrono::system_clock::now().time_since_epoch())};
-}
-
 std::atomic_int64_t test_time_now_ns;
 ns_i64 load_test_time()
 {
-    return ns_i64(test_time_now_ns.load(std::memory_order_relaxed()));
+    return ns_i64(test_time_now_ns.load(std::memory_order_relaxed));
+}
 }
 
-system_clock::time_point system_clock_test_now()
+system_clock::time_point system_clock::test_now()
 {
     return system_clock::time_point{std::chrono::duration_cast<system_clock::duration>(load_test_time())};
 }
+system_clock::time_point system_clock::real_now()
+{
+    return system_clock::time_point{std::chrono::duration_cast<system_clock::duration>(std::chrono::system_clock::now().time_since_epoch())};
 }
-
-system_clock::now_func system_clock::now = system_clock_now;
+system_clock::now_func system_clock::now = system_clock::real_now;
 
 void test_time::setup_time_point(system_clock::time_point start)
 {
@@ -41,7 +39,13 @@ void test_time::setup_time_point(system_clock::time_point start)
 
 int test_time::setup_clock(system_clock&)
 {
-    system_clock::now = system_clock_test_now;
+    system_clock::now = system_clock::test_now;
+    return 1;
+}
+
+int test_time::undo_setup_clock(system_clock&)
+{
+    system_clock::now = system_clock::real_now;
     return 1;
 }
 

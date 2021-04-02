@@ -11,7 +11,16 @@
 
 TEST_SUITE_BEGIN("test time");
 
-TEST_CASE("test")
+TEST_CASE("setup")
+{
+    CHECK(ftm::system_clock::now == ftm::system_clock::real_now);
+    ftm::test_time::setup();
+    CHECK(ftm::system_clock::now == ftm::system_clock::test_now);
+    ftm::test_time::undo_setup();
+    CHECK(ftm::system_clock::now == ftm::system_clock::real_now);
+}
+
+TEST_CASE("elapse")
 {
     ftm::test_time::setup();
 

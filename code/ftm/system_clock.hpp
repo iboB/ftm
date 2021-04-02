@@ -18,5 +18,8 @@ public:
 
     using now_func = time_point(*)();
     static now_func now;
+
+    static time_point test_now();
+    static time_point real_now();
 };
 }

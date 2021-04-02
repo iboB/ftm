@@ -27,11 +27,23 @@ public:
         setup(start, system_clock());
     }
 
+    template <typename ...Clocks>
+    static void undo_setup(Clocks... clocks)
+    {
+        [[maybe_unused]] int u[] = { undo_setup_clock(clocks)... };
+    }
+
+    static void undo_setup()
+    {
+        undo_setup(system_clock());
+    }
+
     static void elapse(ns_i64 duration);
 
 private:
     static void setup_time_point(system_clock::time_point start);
     static int setup_clock(system_clock&);
+    static int undo_setup_clock(system_clock&);
 };
 
 }
