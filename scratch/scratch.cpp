@@ -1,7 +1,9 @@
 #include <iostream>
 
+#include <ftm/test_time.hpp>
+
 int main()
 {
-    std::cout << "hello\n";
+    ftm::test_time::setup();
     return 0;
 }

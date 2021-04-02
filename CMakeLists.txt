@@ -19,7 +19,7 @@ option(FTM_BUILD_SCRATCH "ftm: build scratch project for testing and experiments
 
 mark_as_advanced(FTM_BUILD_TESTS FTM_BUILD_EXAMPLES FTM_BUILD_SCRATCH)
 
-add_subdirectory(code)
+add_subdirectory(code/ftm)
 
 if(FTM_BUILD_SCRATCH)
     add_subdirectory(scratch)
