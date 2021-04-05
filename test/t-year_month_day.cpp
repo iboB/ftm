@@ -60,6 +60,33 @@ TEST_CASE("wday")
     CHECK(d.wday() == 6);
 }
 
+TEST_CASE("yday")
+{
+    year_month_day d;
+
+    d = { 2004, year_month_day::jan, 1 };
+    CHECK(d.yday() == 0);
+    d = {2004, year_month_day::feb, 1};
+    CHECK(d.yday() == 31);
+    d = {2004, year_month_day::feb, 29};
+    CHECK(d.yday() == 59);
+    d = {2004, year_month_day::mar, 1};
+    CHECK(d.yday() == 60);
+    d = {2004, year_month_day::dec, 31};
+    CHECK(d.yday() == 365);
+
+    d = {2003, year_month_day::jan, 1};
+    CHECK(d.yday() == 0);
+    d = {2003, year_month_day::feb, 1};
+    CHECK(d.yday() == 31);
+    d = {2003, year_month_day::feb, 28};
+    CHECK(d.yday() == 58);
+    d = {2003, year_month_day::mar, 1};
+    CHECK(d.yday() == 59);
+    d = {2003, year_month_day::dec, 31};
+    CHECK(d.yday() == 364);
+}
+
 TEST_CASE("compare")
 {
     year_month_day d = {1984, year_month_day::jun, 25};

@@ -61,6 +61,17 @@ struct year_month_day
         return (y + y / 4 - y / 100 + y / 400 + t[m] + d) % 7;
     }
 
+    // day of the year 0-365
+    int yday() const
+    {
+        int ret = day - 1;
+        for (uint8_t m = 0; m < month; ++m)
+        {
+            ret += days_per_month[m];
+        }
+        return ret + (month > 1 && leap());
+    }
+
     bool valid() const
     {
         if (month > 11) return false;
