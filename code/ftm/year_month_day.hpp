@@ -82,10 +82,30 @@ struct year_month_day
 
     friend bool operator==(const year_month_day& a, const year_month_day& b) { return a.year == b.year && a.month == b.month && a.day == b.day; }
     friend bool operator!=(const year_month_day& a, const year_month_day& b) { return a.year != b.year || a.month != b.month || a.day != b.day; }
-    friend bool operator>(const year_month_day& a, const year_month_day& b) { return a.year > b.year || a.month > b.month || a.day > b.day; }
-    friend bool operator>=(const year_month_day& a, const year_month_day& b) { return a > b || a == b; }
-    friend bool operator<(const year_month_day& a, const year_month_day& b) { return a.year < b.year || a.month < b.month || a.day < b.day; }
-    friend bool operator<=(const year_month_day& a, const year_month_day& b) { return a < b || a == b; }
+    friend bool operator>(const year_month_day& a, const year_month_day& b)
+    {
+        if (a.year != b.year) return a.year > b.year;
+        if (a.month != b.month) return a.month > b.month;
+        return a.day > b.day;
+    }
+    friend bool operator>=(const year_month_day& a, const year_month_day& b)
+    {
+        if (a.year != b.year) return a.year > b.year;
+        if (a.month != b.month) return a.month > b.month;
+        return a.day >= b.day;
+    }
+    friend bool operator<(const year_month_day& a, const year_month_day& b)
+    {
+        if (a.year != b.year) return a.year < b.year;
+        if (a.month != b.month) return a.month < b.month;
+        return a.day < b.day;
+    }
+    friend bool operator<=(const year_month_day& a, const year_month_day& b)
+    {
+        if (a.year != b.year) return a.year < b.year;
+        if (a.month != b.month) return a.month < b.month;
+        return a.day <= b.day;
+    }
 };
 
 }

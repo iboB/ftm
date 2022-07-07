@@ -129,6 +129,18 @@ TEST_CASE("compare")
     CHECK(d != d2);
     CHECK(d2 > d);
     CHECK(d2 >= d);
+
+    d2 = d;
+    d2.year = 1983;
+    d2.month = year_month_day::dec;
+    d2.day = 26;
+    CHECK(d != d2);
+    CHECK(d > d2);
+    CHECK(d >= d2);
+    CHECK(d2 < d);
+    CHECK(d2 <= d);
+    CHECK(!(d < d2));
+    CHECK(!(d2 > d));
 }
 
 TEST_CASE("human integer")
