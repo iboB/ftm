@@ -26,4 +26,4 @@ All contributions in the form of issues and pull requests are welcome.
 
 The library is distributed under the MIT Software License. See LICENSE for further details or copy here.
 
-Copyright &copy; 2021 Borislav Stanimirov.
+Copyright &copy; 2021-2022 Borislav Stanimirov.

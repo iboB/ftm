@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
 
 include(./get_cpm.cmake)
 
-CPMAddPackage("gh:iboB/icm@1.3.1")
-CPMAddPackage("gh:iboB/doctest-lib#2.4.4")
+CPMAddPackage(gh:iboB/icm@1.3.3)
+CPMAddPackage(gh:iboB/doctest-lib@2.4.8a)
 
 include(${icm_SOURCE_DIR}/icm_testing.cmake)
 
