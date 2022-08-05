@@ -17,7 +17,7 @@ TEST_CASE("default")
 {
     year_month_day d;
     CHECK(d.year == 1970);
-    CHECK(d.month == 0);
+    CHECK(d.month == year_month_day::jan);
     CHECK(d.day == 1);
 }
 
@@ -39,32 +39,32 @@ TEST_CASE("wday")
 {
     year_month_day d;
     d = { 1900, year_month_day::aug, 5 };
-    CHECK(d.wday() == 0);
+    CHECK(d.wday() == year_month_day::sun);
 
     d = {1984, year_month_day::jun, 25};
-    CHECK(d.wday() == 1);
+    CHECK(d.wday() == year_month_day::mon);
 
     d = {4801, year_month_day::dec, 25};
-    CHECK(d.wday() == 2);
+    CHECK(d.wday() == year_month_day::tue);
 
     d = {1813, year_month_day::jan, 20};
-    CHECK(d.wday() == 3);
+    CHECK(d.wday() == year_month_day::wed);
 
     d = {2000, year_month_day::mar, 2};
-    CHECK(d.wday() == 4);
+    CHECK(d.wday() == year_month_day::thu);
 
     d = {2021, year_month_day::apr, 2};
-    CHECK(d.wday() == 5);
+    CHECK(d.wday() == year_month_day::fri);
 
     d = {2020, year_month_day::feb, 29};
-    CHECK(d.wday() == 6);
+    CHECK(d.wday() == year_month_day::sat);
 }
 
 TEST_CASE("yday")
 {
     year_month_day d;
 
-    d = { 2004, year_month_day::jan, 1 };
+    d = {2004, year_month_day::jan, 1};
     CHECK(d.yday() == 0);
     d = {2004, year_month_day::feb, 1};
     CHECK(d.yday() == 31);
@@ -185,7 +185,7 @@ TEST_CASE("valid")
     d.month = year_month_day::dec;
     CHECK(d.valid());
 
-    d.month = 12;
+    d.month = month_t(13);
     CHECK(!d.valid());
     d.month = year_month_day::feb;
     d.day = 0;
