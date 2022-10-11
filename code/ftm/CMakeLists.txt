@@ -1,3 +1,6 @@
+# Copyright (c) Borislav Stanimirov
+# SPDX-License-Identifier: MIT
+#
 if(FTM_HEADER_ONLY_LIB)
     add_library(ftm INTERFACE)
 elseif(FTM_STATIC_LIB)
@@ -19,4 +22,5 @@ else()
     message(FATAL_ERROR "ftm: unsupported lib config")
 endif()
 
+add_library(ftm::ftm ALIAS ftm)
 target_include_directories(ftm INTERFACE ..)
