@@ -13,7 +13,7 @@ class FTM_API test_time
 {
 public:
     template <typename ...Clocks>
-    static void setup(system_clock::time_point start = {}, Clocks... clocks)
+    static void setup(system_clock::time_point start, Clocks... clocks)
     {
         setup_time_point(start);
         [[maybe_unused]] int u[] = { setup_clock(clocks)... };
